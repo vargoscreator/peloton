@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Peloton</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="body"> 
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__top">
+                    <p class="header__top-descr">Polish provider</p>
+                    <p class="header__top-descr">Ecosystem for processing</p>
+                    <p class="header__top-descr">B2B</p>
+                    <a class="header__top-descr" href="#">English</a>
+                </div>
+                <div class="header__content">
+                    <a class="header__logo" href="index.html">
+                        <img src="img/logo.svg" alt="">
+                    </a>
+                    <nav class="header__menu">
+                        <button class="header__menu-close"></button>
+                        <ul>
+                            <li>
+                                <a href="#">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">Solutions</a>
+                            </li>
+                            <li>
+                                <a href="#">For Business</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#">Technology</a>
+                            </li>
+                            <li>
+                                <a href="#">Compliance</a>
+                            </li>
+                            <li>
+                                <a href="#">About</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#">Resources</a>
+                            </li>
+                        </ul>
+                        <a class="header__btn btn" href="#" data-popup-open="getintouch">Talk to the team</a>
+                    </nav>
+                    <a class="header__btn btn" href="#" data-popup-open="getintouch">Talk to the team</a>
+                    <a class="header__top-descr show-mobile" href="#">English</a>
+                    <button class="header__burger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="29" height="22" viewBox="0 0 29 22" fill="none">
+                            <rect x="3.3689" width="25.6311" height="2" fill="#F60408"/>
+                            <rect x="1.97559" y="9.99036" width="27.0243" height="2" fill="#F60408"/>
+                            <rect y="19.9807" width="16.1673" height="2" fill="#F60408"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="hero__inner">
+                    <div class="hero__image">
+                        <img src="img/hero-logo.svg" alt="">
+                    </div>
+                    <div class="hero__content">
+                        <h1 class="hero__title"><span>Crypto</span>infrastructure for <br>e-businesses</h1>
+                        <span class="hero__line"></span>
+                        <p class="hero__descr">Peloton provides on-ramp, off-ramp and crypto payment solutions for fintechs, platforms and enterprises — built in Poland, aligned with EU regulation, and ready to scale across Europe.</p>
+                        <div class="hero__box">
+                            <span class="hero__btn">
+                                <a class="btn-2" href="#">See solutions</a>
+                            </span>
+                            <div class="hero__socials">
+                                <a href="#" target="_blank">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21.4811 17.1418L30.1566 7.05719H28.1008L20.5678 15.8135L14.5512 7.05719H7.61182L16.7101 20.2983L7.61182 30.8736H9.66776L17.6228 21.6266L23.9767 30.8736H30.9161L21.4806 17.1418H21.4811ZM18.6652 20.415L17.7433 19.0965L10.4085 8.60487H13.5664L19.4856 17.0719L20.4074 18.3905L28.1018 29.3963H24.9439L18.6652 20.4155V20.415Z" fill="#E60A14"/>
+                                    </svg>
+                                </a>
+                                <a href="#" target="_blank">
+                                    <svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.51908 17.226C12.1573 13.8982 17.2506 11.7043 19.799 10.6443C27.0753 7.61786 28.5873 7.09213 29.5728 7.07477C29.7895 7.07095 30.2742 7.12467 30.5881 7.37939C30.8531 7.59448 30.9261 7.88503 30.961 8.08895C30.9959 8.29288 31.0393 8.75742 31.0048 9.1204C30.6105 13.2634 28.9043 23.3174 28.0363 27.9577C27.669 29.9211 26.9458 30.5795 26.2457 30.6439C24.7242 30.7839 23.5688 29.6384 22.0951 28.6723C19.789 27.1607 18.4863 26.2197 16.2479 24.7446C13.661 23.0399 15.3379 22.103 16.8122 20.5717C17.198 20.171 23.902 14.0732 24.0318 13.5201C24.048 13.4509 24.063 13.193 23.9098 13.0568C23.7566 12.9207 23.5305 12.9672 23.3674 13.0043C23.1361 13.0568 19.4521 15.4917 12.3156 20.3091C11.2699 21.0271 10.3227 21.377 9.47415 21.3586C8.53863 21.3384 6.73907 20.8297 5.40129 20.3948C3.76044 19.8615 2.45632 19.5795 2.56988 18.6736C2.62903 18.2018 3.27876 17.7193 4.51908 17.226Z" fill="#E60A14"/>
+                                    </svg>
+                                </a>
+                                <a href="#" target="_blank">
+                                    <svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_51_607)">
+                                            <path d="M22.7925 10.99H24.9453V7.24063C24.5739 7.18954 23.2966 7.07458 21.809 7.07458C18.7052 7.07458 16.5789 9.02689 16.5789 12.6151V15.9174H13.1538V20.109H16.5789V30.6556H20.7783V20.1099H24.0649L24.5866 15.9184H20.7773V13.0307C20.7783 11.8193 21.1045 10.99 22.7925 10.99Z" fill="#E60A14"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_51_607">
+                                                <rect width="23.581" height="23.581" fill="white" transform="translate(7.07568 7.07458)"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                                <a href="#" target="_blank">
+                                    <svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_51_611)">
+                                            <path d="M32.1193 31.058L32.1253 31.057V22.255C32.1253 17.949 31.1983 14.632 26.1643 14.632C23.7443 14.632 22.1203 15.96 21.4573 17.219H21.3873V15.034H16.6143V31.057H21.5843V23.123C21.5843 21.034 21.9803 19.014 24.5673 19.014C27.1163 19.014 27.1543 21.398 27.1543 23.257V31.058H32.1193Z" fill="#E60A14"/>
+                                            <path d="M8.52246 15.0342H13.4985V31.0572H8.52246V15.0342Z" fill="#E60A14"/>
+                                            <path d="M11.007 7.05713C9.416 7.05713 8.125 8.34813 8.125 9.93913C8.125 11.5301 9.416 12.8481 11.007 12.8481C12.598 12.8481 13.889 11.5301 13.889 9.93913C13.888 8.34813 12.597 7.05713 11.007 7.05713Z" fill="#E60A14"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_51_611">
+                                                <rect width="24" height="24" fill="white" transform="translate(8.125 7.05713)"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="hero__icons">
+                            <div class="hero__icons-block">
+                                <div class="hero__icons-item">
+                                    <img src="img/hero/icons/1.png" alt="">
+                                </div>
+                                <div class="hero__icons-item">
+                                    <img src="img/hero/icons/2.png" alt="">
+                                </div>
+                                <div class="hero__icons-item">
+                                    <img src="img/hero/icons/3.png" alt="">
+                                </div>
+                                <div class="hero__icons-item">
+                                    <img src="img/hero/icons/4.png" alt="">
+                                </div>
+                                <div class="hero__icons-item">
+                                    <img src="img/hero/icons/5.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="built">
+            <div class="container">
+                <div class="built__inner">
+                    <div class="built__top">
+                        <div class="built__start">
+                            <div class="built__start-image">
+                                <img src="img/built.svg" alt="">
+                            </div>
+                            <h2 class="built__start-title title">Peloton is built for</h2>
+                            <span class="built__start-icon line-icon"></span>
+                        </div>
+                        <div class="built__start-content">
+                            <p class="built__start-descr">We work with regulated businesses that need reliable crypto infrastructure without building it from scratch. Peloton combines banking-grade standards with deep Web3 expertise.</p>
+                        </div>
+                    </div>
+                    <div class="built__block">
+                        <div class="built__item">
+                            <p class="built__item-num">01</p>
+                            <div class="built__item-content">
+                                <div class="built__item-block">
+                                    <h3 class="built__item-title">Fintech 	& neobanks</h3>
+                                    <p class="built__item-name">Enterprise-grade payment infrastructure</p>
+                                </div>
+                                <p class="built__item-descr">Enable your customers to buy, sell and hold crypto directly in your app with full AML / KYC coverage and automated reporting.</p>
+                            </div>
+                        </div>
+                        <div class="built__item">
+                            <p class="built__item-num">02</p>
+                            <div class="built__item-content">
+                                <div class="built__item-block">
+                                    <h3 class="built__item-title">Crypto 	& Web3 projects</h3>
+                                    <p class="built__item-name">Enterprise-grade payment infrastructure</p>
+                                </div>
+                                <p class="built__item-descr">Add compliant fiat on-ramp and off-ramp to your token, exchange, wallet or game. Focus on product, while we handle payments and regulation.</p>
+                            </div>
+                        </div>
+                        <div class="built__item">
+                            <p class="built__item-num">03</p>
+                            <div class="built__item-content">
+                                <div class="built__item-block">
+                                    <h3 class="built__item-title">E-commerce 	& online platforms</h3>
+                                    <p class="built__item-name">Enterprise-grade payment infrastructure</p>
+                                </div>
+                                <p class="built__item-descr">Accept crypto from global customers and receive settlements in PLN, EUR or USD directly to your bank account.</p>
+                            </div>
+                        </div>
+                        <div class="built__item">
+                            <p class="built__item-num">04</p>
+                            <div class="built__item-content">
+                                <div class="built__item-block">
+                                    <h3 class="built__item-title">Brokerage, 	investment & payment institutions</h3>
+                                    <p class="built__item-name">Enterprise-grade payment infrastructure</p>
+                                </div>
+                                <p class="built__item-descr">Offer crypto exposure next to traditional products while staying aligned with Polish AML law and MiCA requirements.</p>
+                            </div>
+                        </div>
+                        <div class="built__item">
+                            <p class="built__item-num">05</p>
+                            <div class="built__item-content">
+                                <div class="built__item-block">
+                                    <h3 class="built__item-title">High-volume 	merchants & marketplaces</h3>
+                                    <p class="built__item-name">Enterprise-grade payment infrastructure</p>
+                                </div>
+                                <p class="built__item-descr">Process large volumes of crypto payments with clear audit trails, settlement reporting and support for your finance team.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="whywe">
+            <div class="container">
+                <div class="whywe__inner">
+                    <div class="whywe__content">
+                        <h2 class="whywe__title title">Why businesses choose Peloton</h2>
+                    </div>
+                    <div class="whywe__block">
+                        <div class="whywe__item">
+                            <h3 class="whywe__item-title">Polish 	& EU regulatory expertise</h3>
+                            <span class="whywe__item-line"></span>
+                            <p class="whywe__item-descr">Built and operated from Poland, with a focus on compliance with national AML law and EU regulation (including MiCA). We work closely with specialised legal and compliance advisors.</p>
+                        </div> 
+                        <div class="whywe__item">
+                            <h3 class="whywe__item-title">Flexible 	business models</h3>
+                            <span class="whywe__item-line"></span>
+                            <p class="whywe__item-descr">API-only, white-label or co-branded solutions. We adapt our services to your licensing, geography and risk appetite.</p>
+                        </div> 
+                        <div class="whywe__item">
+                            <h3 class="whywe__item-title">End-to-end 	support</h3>
+                            <span class="whywe__item-line"></span>
+                            <p class="whywe__item-descr">From business design and risk assessment to integration and ongoing monitoring — Peloton acts as your long-term partner, not just a technical provider.</p>
+                        </div> 
+                        <div class="whywe__item">
+                            <h3 class="whywe__item-title">Built 	for scale</h3>
+                            <span class="whywe__item-line"></span>
+                            <p class="whywe__item-descr">Architecture designed for high transaction volumes, new product lines and expansion into additional EU markets.</p>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="solutions">
+            <div class="container">
+                <div class="solutions__inner">
+                    <h2 class="solutions__title title">Solutions</h2>
+                    <span class="solutions__line"></span>
+                    <p class="solutions__descr">A single infrastructure for all key crypto flows. Choose only what you need today and expand as your business grows. All services are subject to KYC / AML verification and internal risk assessment.</p>
+                    <div class="solutions__slider">
+                        <div class="swiper-wrapper">    
+                            <div class="solutions-item swiper-slide">
+                                <div class="flip-box">
+                                    <div class="flip-box-front">
+                                        <div class="flip-inner">
+                                            <h3 class="flip-title">On-ramp - from <br>fiat to crypto</h3>
+                                        </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <div class="flip-inner">
+                                            <div class="solutions-item-icon">
+                                                <img src="img/built.svg" alt="">
+                                            </div>
+                                            <div class="solutions-item-content">
+                                                <p class="solutions-item-descr">Let users buy crypto with bank transfers, cards and local payment methods directly inside your product. Peloton handles transaction processing, AML checks and reporting — your customers get a simple, familiar payment experience.</p>
+                                                <ul class="solutions-item-list">
+                                                    <li>Support 		for PLN, EUR and other major currencies</li>
+                                                    <li>One-time 		and recurring purchases</li>
+                                                    <li>White-label 		UI or API-only</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="solutions-item swiper-slide">
+                                <div class="flip-box">
+                                    <div class="flip-box-front">
+                                        <div class="flip-inner">
+                                            <h3 class="flip-title">Off-ramp - from crypto to fiat</h3>
+                                        </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <div class="flip-inner">
+                                            <div class="solutions-item-icon">
+                                                <img src="img/built.svg" alt="">
+                                            </div>
+                                            <div class="solutions-item-content">
+                                                <p class="solutions-item-descr">Allow users to convert crypto to fiat and withdraw funds to their bank accounts, safely and transparently. We perform real-time monitoring, transaction screening and provide clear settlement reports for your finance and compliance teams.</p>
+                                                <ul class="solutions-item-list">
+                                                    <li>Payouts 		to bank accounts in selected countries</li>
+                                                    <li>Automated 		AML / CFT checks and limits</li>
+                                                    <li>Detailed 		reporting for accounting and audits</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="solutions-item swiper-slide">
+                                <div class="flip-box">
+                                    <div class="flip-box-front">
+                                        <div class="flip-inner">
+                                            <h3 class="flip-title">Crypto 	payment gateway</h3>
+                                        </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <div class="flip-inner">
+                                            <div class="solutions-item-icon">
+                                                <img src="img/built.svg" alt="">
+                                            </div>
+                                            <div class="solutions-item-content">
+                                                <p class="solutions-item-descr">Accept crypto payments from global customers while always receiving fiat on your side.Perfect for e-commerce, digital services and high-value B2B payments.</p>
+                                                <ul class="solutions-item-list">
+                                                    <li>Pricing 		in your local currency</li>
+                                                    <li>Automatic 		conversion from crypto to fiat</li>
+                                                    <li>Easy 		integration with popular e-commerce platforms (Shopify, 		WooCommerce, custom)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="solutions-item swiper-slide">
+                                <div class="flip-box">
+                                    <div class="flip-box-front">
+                                        <div class="flip-inner">
+                                            <h3 class="flip-title">On-ramp - from <br>fiat to crypto</h3>
+                                        </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <div class="flip-inner">
+                                            <div class="solutions-item-icon">
+                                                <img src="img/built.svg" alt="">
+                                            </div>
+                                            <div class="solutions-item-content">
+                                                <p class="solutions-item-descr">Institutional access to crypto liquidity for companies, OTC desks and Web3 projects. <br>Exchange crypto - fiat or crypto - crypto with clear fees and an audited process.</p>
+                                                <ul class="solutions-item-list">
+                                                    <li>Competitive 		spreads and transparent pricing</li>
+                                                    <li>Support 		for stablecoins and major assets</li>
+                                                    <li>Exchange-as-a-Service 		for partners</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="solutions__slider-pagination"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="buy">
+            <div class="container">
+                <div class="buy__inner">
+                    <div class="buy__content">
+                        <div class="buy__icon">
+                            <img src="img/built.svg" alt="">
+                        </div>
+                        <div class="buy__about">
+                            <h2 class="buy__title title">Buy Crypto Instantly on our Platform</h2>
+                            <span class="buy__line line-icon"></span>
+                            <p class="buy__descr">Seamless fiat-to-crypto conversion through Peloton’s secure, compliant On-Ramp Widget. <br>Fast payments, automated KYC, and real-time execution.</p>
+                            <span class="buy__btn">
+                                <a class="btn" href="#">Learn More About the Widget</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="buy__right">
+                        <form class="buy__form" action="#">
+                            <div class="buy__form-icon">
+                                <img src="img/logo.svg" alt="">
+                            </div>
+                            <div class="buy__form-content">
+                                <p class="buy__form-title">You give</p>
+                                <div class="buy__form-box">
+                                    <input class="buy__form-input" type="text" name="You give" placeholder="41.77" required>
+                                    <div class="buy__form-select">
+                                        <div class="buy__form-select-top">
+                                            <div class="buy__form-selected">
+                                                <p class="buy__form-name">EURO</p>
+                                            </div>
+                                            <div class="buy__form-crypto">
+                                                <img src="img/eth.svg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="buy__form-select-bottom">
+                                            <div class="buy__form-select-item">
+                                                <div class="buy__form-selected">
+                                                    <p class="buy__form-name">ETH</p>
+                                                    <p class="buy__form-descr">On Ethereum</p>
+                                                </div>
+                                                <div class="buy__form-crypto">
+                                                    <img src="img/eth.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="buy__form-content">
+                                <p class="buy__form-title">You receive</p>
+                                <div class="buy__form-box">
+                                    <input class="buy__form-input" type="text" name="You receive" placeholder="0.00044" required>
+                                    <div class="buy__form-select">
+                                        <div class="buy__form-select-top">
+                                            <div class="buy__form-selected">
+                                                <p class="buy__form-name">ETH</p>
+                                                <p class="buy__form-descr">On Ethereum</p>
+                                            </div>
+                                            <div class="buy__form-crypto">
+                                                <img src="img/eth.svg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="buy__form-select-bottom">
+                                            <div class="buy__form-select-item">
+                                                <div class="buy__form-selected">
+                                                    <p class="buy__form-name">EURO</p>
+                                                </div>
+                                                <div class="buy__form-crypto">
+                                                    <img src="img/eth.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="buy__info">
+                                <div class="buy__info-item">
+                                    <p class="buy__info-name">Exchange rate:</p>
+                                    <p class="buy__info-descr">1 ETH =4300 EURO</p>
+                                </div>
+                                <div class="buy__info-block">
+                                    <div class="buy__info-item">
+                                        <p class="buy__info-name">Min:</p>
+                                        <p class="buy__info-descr">0.01 ETH</p>
+                                    </div>
+                                    <div class="buy__info-item">
+                                        <p class="buy__info-name">Reserve:</p>
+                                        <p class="buy__info-descr">1000.09 ETH</p>
+                                    </div>
+                                    <div class="buy__info-item">
+                                        <p class="buy__info-name">Max:</p>
+                                        <p class="buy__info-descr">2 ETH</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="buy__form-btn btn-2" type="submit">Buy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="technology">
+            <div class="container">
+                <div class="technology__inner">
+                    <h2 class="technology__title title">Technology & integrations</h2>
+                    <span class="technology__line"></span>
+                    <p class="technology__descr">Technology built for digital businesses . All Peloton services are delivered through a single, modern API. You can start with one product and add more over time — without rebuilding your integration.</p>
+                    <div class="technology__slider">
+                        <div class="swiper-wrapper">
+                            <div class="technology__item swiper-slide">
+                                <div class="technology__item-content">
+                                    <p class="technology__item-num">01</p>
+                                    <p class="technology__item-descr">Unified 	API for on-ramp, off-ramp, gateway and exchange</p>
+                                </div>
+                            </div>
+                            <div class="technology__item swiper-slide">
+                                <div class="technology__item-content">
+                                    <p class="technology__item-num">02</p>
+                                    <p class="technology__item-descr">Sandbox 	environment for testing</p>
+                                </div>
+                            </div>
+                            <div class="technology__item swiper-slide">
+                                <div class="technology__item-content">
+                                    <p class="technology__item-num">03</p>
+                                    <p class="technology__item-descr">Webhook and callback for real-time status updates</p>
+                                </div>
+                            </div>
+                            <div class="technology__item swiper-slide">
+                                <div class="technology__item-content">
+                                    <p class="technology__item-num">04</p>
+                                    <p class="technology__item-descr">Role-based access for your operations and compliance teams</p>
+                                </div>
+                            </div>
+                            <div class="technology__item swiper-slide">
+                                <div class="technology__item-content">
+                                    <p class="technology__item-num">05</p>
+                                    <p class="technology__item-descr">Enterprise-grade 	security (encryption in transit and at rest, network segmentation, 	secure key management)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="technology__slider-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="otc">
+            <div class="container">
+                <div class="otc__inner">
+                    <div class="otc__icon">
+                        <img src="img/built.svg" alt="">
+                    </div>
+                    <h2 class="otc__title title">OTC Desk for Corporate Fiat <br><span class="exchange-icon">⇄</span> Crypto Settlements</h2>
+                    <span class="otc__line"></span>
+                    <div class="otc__block">
+                        <p class="otc__descr">High-volume transactions for legal entities with competitive pricing, dedicated support, and full AML/CFT compliance. </p>
+                        <p class="otc__descr">Perfect for businesses needing secure liquidity, treasury operations, or large conversions.</p>
+                    </div>
+                    <span class="otc__btn">
+                        <a class="btn" href="#">Explore OTC Services</a>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq">
+            <div class="container">
+                <div class="faq__inner">
+                    <h2 class="faq__title title">FAQ</h2>
+                    <span class="faq__line"></span>
+                    <div class="faq__block">
+                        <div class="faq__item">
+                            <h3 class="faq__item-title">Is 	Peloton regulated in Poland?</h3>
+                            <p class="faq__item-descr">Yes. Peloton operates as a virtual asset / crypto-asset service provider in Poland under applicable AML law and EU regulation. Our registration details and responsible authorities are listed in the Compliance section and in our legal documentation.</p>
+                        </div>
+                        <div class="faq__item">
+                            <h3 class="faq__item-title">Who 	can use Peloton’s services?</h3>
+                            <p class="faq__item-descr">We work exclusively with businesses that complete our onboarding and compliance checks. We do not provide services directly to retail users without a partner.</p>
+                        </div>
+                        <div class="faq__item">
+                            <h3 class="faq__item-title">Do 	you provide custody / wallets?</h3>
+                            <p class="faq__item-descr">Depending on your use case, we can support non-custodial and custodial scenarios in cooperation with regulated partners. Concrete models are agreed individually and subject to legal review.</p>
+                        </div>
+                        <div class="faq__item">
+                            <h3 class="faq__item-title">What 	is required to start integration?</h3>
+                            <p class="faq__item-descr">After initial discovery, we sign an NDA, run a compliance assessment and provide access to sandbox and technical documentation. Your legal and technical teams are involved from the beginning.</p>
+                        </div>
+                        <div class="faq__item">
+                            <h3 class="faq__item-title">In 	which countries can you operate?</h3>
+                            <p class="faq__item-descr">Our primary focus is Poland and the EU. Cross-border setups depend on regulatory analysis and passporting rules. Please contact us to discuss your specific jurisdictions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="howinteg">
+            <div class="container">
+                <div class="howinteg__inner">
+                    <div class="howinteg__left">
+                        <h2 class="howinteg__title title">How integration with Peloton works</h2>
+                        <span class="howinteg__line"></span>
+                        <div class="howinteg__select">
+                            <button class="howinteg__select-btn active">01</button>
+                            <button class="howinteg__select-btn">02</button>
+                            <button class="howinteg__select-btn">03</button>
+                        </div>
+                        <div class="howinteg__content">
+                            <div class="howinteg__result active">
+                                <h3 class="howinteg__result-title">Compliance 	& onboarding</h3>
+                                <p class="howinteg__result-descr">We review your business model, use cases and jurisdictions. Together with your team, we define services, limits and risk rules.</p>
+                            </div>
+                            <div class="howinteg__result">
+                                <h3 class="howinteg__result-title">Compliance</h3>
+                                <p class="howinteg__result-descr">use cases and jurisdictions. Together with your team, we define services, limits and risk rules.</p>
+                            </div>
+                            <div class="howinteg__result">
+                                <h3 class="howinteg__result-title">Compliance 	& onboarding</h3>
+                                <p class="howinteg__result-descr">We review your business model, use cases and jurisdictions. Together with your team, we define services, limits and risk rules.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="howinteg__right">
+                        <div class="howinteg__right-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="37" height="27" viewBox="0 0 37 27" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.92652 19.3527C7.47088 19.6303 13.0153 19.8524 18.5596 19.8524C24.104 19.8524 29.6483 19.6414 35.1927 19.3527C35.4724 19.3416 35.7331 19.5304 35.9175 19.8413C36.1019 20.1522 36.2227 20.5963 36.2227 21.0959V24.1382C36.2227 24.6378 36.1019 25.0931 35.9175 25.4372C35.7331 25.7814 35.4724 26.0035 35.1927 26.0257C29.6483 26.4254 24.104 26.7252 18.5596 26.7252C13.0153 26.7252 7.47088 26.4143 1.92652 26.0257C1.6404 26.0035 1.37973 25.7814 1.19535 25.4372C1.01096 25.0931 0.896491 24.6378 0.896491 24.1382V21.0959C0.896491 20.5963 1.01096 20.1522 1.19535 19.8413C1.37973 19.5304 1.6404 19.3416 1.92652 19.3527ZM18.3371 0C18.3371 0 16.8492 4.17476 13.6892 6.0956C10.5228 8.01644 7.9414 1.13251 7.9414 1.13251C7.9414 1.13251 6.84143 6.42869 4.52068 6.99495C2.19357 7.56121 0 1.35458 0 1.35458L1.87568 18.3868C1.87568 18.3868 7.04488 19.1751 18.3434 18.953C29.6483 19.1751 34.8112 18.3868 34.8112 18.3868L36.6869 1.35458C36.6869 1.35458 34.4933 7.56121 32.1662 6.99495C29.8391 6.42869 28.7454 1.13251 28.7454 1.13251C28.7454 1.13251 26.164 8.01644 22.9976 6.0956C19.8313 4.17476 18.3498 0 18.3498 0H18.3371Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <h3 class="howinteg__right-title">Integration options</h3>
+                        <span class="howinteg__right-line"></span>
+                        <ul class="howinteg__right-list">
+                            <li>Rest Api</li>
+                            <li>Hosted payment page / widget</li>
+                            <li>I-frame / SDK</li>
+                            <li>Back-office portal for operations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="discuss">
+            <div class="container">
+                <div class="discuss__inner">
+                    <div class="discuss__bg">
+                        <div class="buy__solutions-video" style="width: 100%; aspect-ratio: 734.673 / 802.112; position: relative; overflow: hidden;">
+                            <video autoplay muted loop playsinline
+                                style="width: 100%; height: 100%; object-fit: cover; clip-path: url(#discuss-clip); -webkit-clip-path: url(#discuss-clip);">
+                                <source src="decorative.mp4" type="video/mp4" />
+                            </video>
+                        </div>
+
+                        <svg width="0" height="0" style="position: absolute;">
+                            <defs>
+                                <clipPath id="discuss-clip" clipPathUnits="objectBoundingBox">
+                                    
+                                    <path d="M0.9901 0.2240
+                                        C0.9582 0.1036 0.8522 0.0160 0.7035 0.0020
+                                        C0.6897 0.0007 0.6755 0 0.6610 0
+                                        H0.2184
+                                        C0.1931 0.1159 0.2899 0.2240 0.4189 0.2240
+                                        H0.5901
+                                        C0.6644 0.2240 0.7035 0.2626 0.7035 0.3231
+                                        C0.7035 0.4129 0.6325 0.4927 0.5306 0.4927
+                                        H0.2784
+                                        C0.1810 0.4927 0.0970 0.5557 0.0779 0.6432
+                                        L0 1.0000
+                                        H0.2899
+                                        L0.3518 0.7172
+                                        H0.5290
+                                        C0.7139 0.7172 0.8718 0.6273 0.9491 0.4927
+                                        C0.9805 0.4380 0.9987 0.3761 1.0000 0.3096
+                                        V0.3091
+                                        C1.0000 0.3068 1.0000 0.3045 1.0000 0.3021
+                                        C0.9999 0.2749 0.9966 0.2488 0.9901 0.2240
+                                        Z" />
+                                    
+                                    <path d="M0.3518 0.7172
+                                        L0.3092 0.9062
+                                        H0.0205
+                                        C0.0445 0.7963 0.1500 0.7172 0.2722 0.7172
+                                        H0.3518
+                                        Z" />
+                                    
+                                    <path d="M1.0000 0.3021
+                                        V0.3042
+                                        C1.0000 0.3059 0.9999 0.3075 0.9999 0.3091
+                                        V0.3096
+                                        C0.9962 0.4116 0.9032 0.4927 0.7911 0.4927
+                                        H0.5306
+                                        C0.6325 0.4927 0.7035 0.4129 0.7035 0.3231
+                                        C0.7035 0.2626 0.6644 0.2240 0.5901 0.2240
+                                        H0.9901
+                                        C0.9966 0.2488 1.0000 0.2749 1.0000 0.3021
+                                        Z" />
+                                    
+                                    <path d="M0.4637 0
+                                        C0.6231 0 0.7035 0.0970 0.7035 0.2181
+                                        V0.3231
+                                        C0.7035 0.2626 0.6644 0.2240 0.5901 0.2240
+                                        H0.4613
+                                        L0.4613 0
+                                        C0.4621 0 0.4629 0 0.4637 0
+                                        Z" />
+
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="discuss__content">
+                        <h2 class="discuss__title title"><mark>Let’s</mark> discuss your use case</h2>
+                        <span class="discuss__line line-icon"></span>
+                        <p class="discuss__descr">PELOTON SPÓŁKA Z OGRANICZONĄ <br>ODPOWIEDZIALNOŚCIĄ <br>JANA III SOBIESKIEGO, house no 17 <br>RZESZÓW, post code 35-002 <br>POLAND</p>
+                    </div>
+                    <p class="discuss__name">Not supervised by KNF. <br>AML Obligated Institution.</p>
+                    <div class="discuss__btn">
+                        <a class="btn" href="#" data-popup-open="getintouch">Contact team</a>
+                    </div>
+                    <div class="discuss__block">
+                        <a class="discuss__tel" href="#">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.28906 10.2109L10.4375 4.79687C10.4844 4.56771 10.4557 4.40365 10.3516 4.30469C10.2526 4.20573 10.1198 4.1875 9.95313 4.25L3.20313 6.85156C3.05208 6.90885 2.94792 6.97396 2.89063 7.04687C2.83854 7.11979 2.83333 7.1901 2.875 7.25781C2.91667 7.32031 3 7.36979 3.125 7.40625L4.85156 7.94531L8.85938 5.42187C8.96875 5.34896 9.05208 5.33333 9.10938 5.375C9.14583 5.40104 9.13542 5.4401 9.07812 5.49219L5.83594 8.42187L5.71094 10.2031C5.83073 10.2031 5.94792 10.1458 6.0625 10.0312L6.90625 9.21875L8.65625 10.5078C8.98958 10.6953 9.20052 10.5964 9.28906 10.2109ZM13.4453 4.28125C13.8151 5.14583 14 6.05208 14 7C14 7.94792 13.8151 8.85417 13.4453 9.71875C13.0755 10.5833 12.5781 11.3281 11.9531 11.9531C11.3281 12.5781 10.5833 13.0755 9.71875 13.4453C8.85417 13.8151 7.94792 14 7 14C6.05208 14 5.14583 13.8151 4.28125 13.4453C3.41667 13.0755 2.67188 12.5781 2.04688 11.9531C1.42188 11.3281 0.924479 10.5833 0.554688 9.71875C0.184896 8.85417 0 7.94792 0 7C0 6.05208 0.184896 5.14583 0.554688 4.28125C0.924479 3.41667 1.42188 2.67187 2.04688 2.04687C2.67188 1.42187 3.41667 0.924479 4.28125 0.554687C5.14583 0.184895 6.05208 -9.53674e-07 7 -9.53674e-07C7.94792 -9.53674e-07 8.85417 0.184895 9.71875 0.554687C10.5833 0.924479 11.3281 1.42187 11.9531 2.04687C12.5781 2.67187 13.0755 3.41667 13.4453 4.28125Z" fill="url(#paint0_linear_51_2493)"/>
+                                <defs>
+                                    <linearGradient id="paint0_linear_51_2493" x1="6.67109" y1="-0.219987" x2="7.28502" y2="13.7828" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#E60A14"/>
+                                        <stop offset="1" stop-color="#FF0000"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            Sales team
+                        </a>
+                        <a class="discuss__mail" href="mailto:Info@pelotontek.com">Info@pelotontek.com</a>
+                        <span class="discuss__block-line"></span>
+                        <p class="discuss__descr">Share a few details about your company and needs. Our team will get back to you with possible models, timelines and next steps. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="infoblock">
+            <div class="container">
+                <div class="infoblock__inner">
+                    <div class="infoblock__top">
+                        <div class="infoblock__top-icon">
+                            <img src="img/built.svg" alt="">
+                        </div>
+                        <p class="infoblock__top-descr">Investing in cryptoassets involves significant risk. You should not invest more than you can afford to lose, and you should ensure that you fully understand the risks involved. We are not regulated by the Financial Conduct Authority and investments in cryptoassets are not covered by the Financial Ombudsman Service or subject to protection under the Financial Services Compensation Scheme. </p>
+                    </div>
+                    <div class="infoblock__block">
+                        <div class="infoblock__item">
+                            <h3 class="infoblock__item-title">Regulatory Status in Poland</h3>
+                            <span class="infoblock__item-line"></span>
+                            <div class="infoblock__item-content">
+                                <p class="infoblock__item-descr">Peloton sp. z o.o. is registered in Poland and operates as a virtual asset service provider (VASP) / crypto-asset service provider (CASP) in accordance with applicable Polish and EU law.</p>
+                                <p class="infoblock__item-descr">Registered office: [full address, Poland] <br>KRS: 0001132722 <br>REGON: 529920461 <br>NIP: 8133922725 <br>Entry in the Register of Virtual Currency Activities (RDWW) / CASP 	authorisation: RDWW-1567 / 24.10.2024</p>
+                                <p class="infoblock__item-descr">Peloton is an “obligated institution” under the Polish Act on Counteracting Money Laundering and Terrorist Financing and applies internal AML / CFT procedures, including customer due diligence, transaction monitoring and reporting obligations. <br>Peloton sp. z o.o. is not supervised by the Polish Financial Supervision Authority (KNF). <br>Our operations fall under:</p>
+                                <ul class="infoblock__item-list">
+                                    <li>The Polish AML/CFT Act</li>
+                                    <li>EU 	Regulation standards (including MiCA transition rules)</li>
+                                    <li>Registration in the Polish Register of Virtual Currency Activities (RDWW)</li>
+                                </ul>
+                                <p class="infoblock__item-descr">We do not provide payment services or investment services in the meaning of Polish or EU financial regulations.</p>
+                            </div>
+                        </div>
+
+                        <div class="infoblock__item">
+                            <h3 class="infoblock__item-title">Compliance with Polish AML/CFT Regulations</h3>
+                            <span class="infoblock__item-line"></span>
+                            <div class="infoblock__item-content">
+                                <p class="infoblock__item-descr">We operate under a robust AML / CFT framework:</p>
+                                <ul class="infoblock__item-list">
+                                    <li>Customer identification and verification (KYC) for natural and legal persons</li>
+                                    <li>Ongoing monitoring of business relationships and transactions</li>
+                                    <li>Screening against sanctions lists and PEP databases</li>
+                                    <li>Suspicious activity reporting to competent authorities</li>
+                                </ul>
+                                <p class="infoblock__item-descr">Our policies are regularly reviewed and updated in line with Polish legislation and EU regulation (including MiCA and the Travel Rule, where applicable). <br>Certain transactions may be delayed, restricted, or declined due to legal or internal AML/CFT procedures.</p>
+                            </div>
+                        </div>
+
+                        <div class="infoblock__item">
+                            <h3 class="infoblock__item-title">High - risk crypto- asset warning </h3>
+                            <span class="infoblock__item-line"></span>
+                            <div class="infoblock__item-content">
+                                <p class="infoblock__item-descr">Transactions involving crypto-assets carry a high risk of financial loss, including the possible loss of the entire amount invested. The value of crypto-assets is highly volatile and may change rapidly over short periods of time. Past performance of a crypto-asset is not a reliable indicator of future results. <br>Before using our services or engaging in any transaction involving crypto-assets, users should:</p>
+                                <ul class="infoblock__item-list">
+                                    <li>carefully review information about the specific crypto-asset, including its technology, purpose and risk profile;</li>
+                                    <li>assess their own financial situation and ability to bear potential losses; 	and</li>
+                                    <li>consider obtaining independent legal, tax or investment advice.</li>
+                                </ul>
+                                <p class="infoblock__item-descr">Peloton does not provide investment, tax or legal advice and does not guarantee any profit or capital protection.</p>
+                            </div>
+                        </div>
+
+                        <div class="infoblock__item">
+                            <h3 class="infoblock__item-title">Supervision disclaimer</h3>
+                            <span class="infoblock__item-line"></span>
+                            <div class="infoblock__item-content">
+                                <p class="infoblock__item-descr">Unless explicitly stated otherwise, Peloton is not a bank, payment institution or investment firm and does not provide payment services or investment services within the meaning of applicable EU and Polish financial regulations. <br>The provision of services in the field of virtual currencies may not be subject to prudential supervision in the same way as traditional financial institutions. Please consult our legal documentation for detailed information.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="popup" data-popup="getintouch">
+            <div class="container">
+                <div class="popup__inner">
+                    <div class="popup__image">
+                        <img src="img/hero-logo.svg" alt="">
+                    </div>
+                    <button type="button" class="popup__close" aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12.1152 10.8311L20.7314 2.21582L22.1455 3.63086L13.5303 12.2461L21.6533 20.3691L20.2393 21.7832L12.1162 13.6602L3.76074 22.0156L2.34668 20.6016L10.7012 12.2451L1.85449 3.39844L3.26855 1.98438L12.1152 10.8311Z" fill="#262932"/>
+                        </svg>
+                    </button>
+                    <h2 class="popup__title">Get in Touch</h2>
+                    <form class="popup__form" novalidate>
+                        <div class="popup__form-block">
+                            <input class="popup__form-input" type="text" id="company-name" name="Company name" placeholder="Company name" required>
+                            <p class="popup__form-error">Enter company name*</p>
+                        </div>
+                        <div class="popup__form-block">
+                            <input class="popup__form-input" type="text" id="company-website" name="Company website" placeholder="Company website" required>
+                            <p class="popup__form-error">Enter company website*</p>
+                        </div>
+                        <div class="popup__form-block">
+                            <input class="popup__form-input" type="email" id="company-email" name="Company email" placeholder="Company email" required>
+                            <p class="popup__form-error">Enter company email*</p>
+                        </div>
+                        <div class="popup__form-block">
+                            <div class="custom-select" data-required="true">
+                                <div class="custom-select-selected"><span>Business Type</span></div>
+                                <div class="custom-select-dropdown">
+                                    <span class="custom-select-option">Digital Services (SaaS, VPN, hosting, subscriptions)</span>
+                                    <span class="custom-select-option">Fintech Platforms</span>
+                                    <span class="custom-select-option">E-commerce</span>
+                                    <span class="custom-select-option">Gaming</span>
+                                    <span class="custom-select-option">Travel</span>
+                                    <span class="custom-select-option">Other</span>
+                                </div>
+                                <input type="hidden" name="business_type">
+                            </div>
+                            <p class="popup__form-error">*Select business type</p>
+                        </div>
+                        <div class="popup__form-block">
+                            <input class="popup__form-input" type="text" id="country-of-registration" name="Country of registration" placeholder="Country of registration" required>
+                            <p class="popup__form-error">Enter country of registration*</p>
+                        </div>
+                        <div class="popup__form-block">
+                            <input class="popup__form-input" type="text" id="you-name" name="You name" placeholder="You name" required>
+                            <p class="popup__form-error">Enter you name*</p>
+                        </div>
+                        <div class="popup__form-block">
+                            <input class="popup__form-input" type="tel" id="Phone-number" name="Phone number" placeholder="Phone number" required>
+                            <p class="popup__form-error">Enter your phone number*</p>
+                        </div>
+                        <div class="popup__form-block">
+                            <div class="custom-select" data-required="true">
+                                <div class="custom-select-selected"><span>Expected volume</span></div>
+                                <div class="custom-select-dropdown">
+                                    <span class="custom-select-option">€10,000</span>
+                                    <span class="custom-select-option">€10,000 – €50,000</span>
+                                    <span class="custom-select-option">€50,000 – €250,000</span>
+                                    <span class="custom-select-option">€250,000 – €1,000,000</span>
+                                    <span class="custom-select-option">> €1,000,000</span>
+                                </div>
+                                <input type="hidden" name="monthly_volume">
+                            </div>
+                            <p class="popup__form-error">Choose expected monthly volume*</p>
+                        </div>
+                        <div class="popup__form-block">
+                            <label class="popup__form-label" for="apply-message">Message</label>
+                            <textarea class="popup__form-textarea" id="apply-message" required name="message"></textarea>
+                            <p class="popup__form-error">Write your message*</p>
+                        </div>
+                        <div class="popup__form-agree">
+                            <label>
+                                <input type="checkbox" name="agreed" required>
+                                <span></span>
+                            </label>
+                            <p class="popup__form-agree--descr">I consent to data processing (<a href="privacy-policy.html">Privacy Policy</a>)</p>
+                        </div>
+                        <button class="popup__form-send btn-2" type="submit">Send message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <ul class="footer__menu">
+                    <li>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="terms-of-use.html">Terms & Conditions</a>
+                    </li>
+                    <li>
+                        <a href="#">AML / CFT Policy (summary)</a>
+                    </li>
+                    <li>
+                        <a href="#">Risk Disclosure</a>
+                    </li>
+                    <li>
+                        <a href="#">Regulatory Information</a>
+                    </li>
+                </ul>
+                <p class="footer__copy">© 2025 Peloton sp. z o.o. All rights reserved. <br>Information on this website is of a general nature and does not constitute investment advice, legal advice, tax advice or an offer of financial instruments. <br>Transactions in crypto-assets involve a high level of risk. Please read our Risk Disclosure and Terms & Conditions carefully before using our services.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
