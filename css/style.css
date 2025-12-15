@@ -1139,7 +1139,6 @@ p > a:not(:hover){
         gap: 36px;
         max-width: none;
         width: 100%;
-        overflow: auto;
     }
     .hero__icons-item img{
         height: 36px;
@@ -4747,5 +4746,20 @@ p > a:not(:hover){
     .aboutinfo__btn{
         margin-top: 40px;
         max-width: 263px;
+    }
+}
+@media (max-width: 767px) {
+    .hero__icons-block {
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        display: flex;
+    }
+
+    .hero__icons-item {
+        display: inline-block;
+        margin-right: 15px;
+        flex-shrink: 0;
     }
 }

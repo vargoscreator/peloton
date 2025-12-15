@@ -1594,3 +1594,85 @@ solutionsItems.forEach(item => {
     }
   });
 });
+
+(function() {
+    let animationFrame;
+    let userInteracting = false;
+    let iconsBlock;
+    let singleSetWidth;
+    let scrollPosition = 0;
+    let originalContent = '';
+    let isScrolling = false;
+
+    function startScroll() {
+        if (!userInteracting) {
+            scrollPosition += 0.3;
+            if (scrollPosition >= singleSetWidth) scrollPosition -= singleSetWidth;    
+            iconsBlock.scrollLeft = scrollPosition;
+        }
+        animationFrame = requestAnimationFrame(startScroll);
+    }
+    function pauseScroll() { 
+        userInteracting = true; 
+        cancelAnimationFrame(animationFrame); 
+        animationFrame = null;
+    }
+    function resumeScroll() { 
+        userInteracting = false; 
+    
+        if (iconsBlock) {
+            scrollPosition = iconsBlock.scrollLeft; 
+        }
+        if (!animationFrame) {
+            startScroll(); 
+        }
+    }
+    function resetScroll() {
+        cancelAnimationFrame(animationFrame);
+        animationFrame = null;
+        scrollPosition = 0;
+        if (iconsBlock && originalContent) {
+            iconsBlock.innerHTML = originalContent;
+        }
+        removeEvents();
+        isScrolling = false;
+    }
+
+    function removeEvents() {
+        if (!iconsBlock) return;
+        iconsBlock.removeEventListener('touchstart', pauseScroll);
+        iconsBlock.removeEventListener('touchend', resumeScroll);
+        iconsBlock.removeEventListener('mouseenter', pauseScroll);
+        iconsBlock.removeEventListener('mouseleave', resumeScroll);
+    }
+
+    function initScroll() {
+        iconsBlock = document.querySelector('.hero__icons-block');
+        if (!iconsBlock) return;
+
+        if (!originalContent) originalContent = iconsBlock.innerHTML;
+
+        resetScroll();
+
+        if (window.innerWidth < 768) {
+            iconsBlock.innerHTML = originalContent + originalContent;
+            scrollPosition = iconsBlock.scrollLeft;
+            singleSetWidth = iconsBlock.scrollWidth / 2;
+
+            if (!isScrolling) {
+                startScroll();
+                isScrolling = true;
+            }
+
+            iconsBlock.addEventListener('touchstart', pauseScroll);
+            iconsBlock.addEventListener('touchend', resumeScroll);
+            iconsBlock.addEventListener('mouseenter', pauseScroll);
+            iconsBlock.addEventListener('mouseleave', resumeScroll);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', initScroll);
+    window.addEventListener('load', initScroll);
+    window.addEventListener('resize', initScroll);
+})();
+
