@@ -788,6 +788,36 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 .popup__form-block + .popup__form-block{
     margin-top: 18px;
 }
+.popup__form-radios{
+    display: flex;
+    align-items: center;
+    gap: 82px;
+    margin-top: 70px;
+}
+.popup__form-radio--item input{
+    display: none;
+}
+.popup__form-radio--item span{
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    cursor: pointer;
+}
+.popup__form-radio--item span::before{
+    content: '';;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background-image: url("data:image/svg+xml,%0A%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='23' height='23' rx='11.5' stroke='%23262932'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: flex;
+    cursor: pointer;
+}
+.popup__form-radio--item input:checked + span::before{
+    background-image: url("data:image/svg+xml,%0A%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='23' height='23' rx='11.5' stroke='%23262932'/%3E%3Ccircle cx='12' cy='12' r='4' fill='%23262932'/%3E%3C/svg%3E%0A");
+}
 @media (max-width: 1440px) {
     .popup{
         background: rgba(112, 112, 112, 0.73);
@@ -879,6 +909,18 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     }
     .popup__form-block + .popup__form-block{
         margin-top: 1.324vw;
+    }
+    .popup__form-radios{
+        gap: 6.029vw;
+        margin-top: 5.147vw;
+    }
+    .popup__form-radio--item span{
+        gap: 0.809vw;
+    }
+    .popup__form-radio--item span::before{
+        width: 1.765vw;
+        height: 1.765vw;
+        min-width: 1.765vw;
     }
 }
 @media (max-width: 768px) {
@@ -974,6 +1016,18 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     }
     .popup__form-block + .popup__form-block{
         margin-top: 18px;
+    }
+    .popup__form-radios{
+        gap: 50px;
+        margin-top: 40px;
+    }
+    .popup__form-radio--item span{
+        gap: 11px;
+    }
+    .popup__form-radio--item span::before{
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
     }
 }
 
@@ -1194,6 +1248,9 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     .hero__socials a svg {
         width: 27px;
         min-width: 27px;
+    }
+    .hero__socials a svg path{
+        fill: #262932;
     }
     .hero__icons{
         margin-top: 31px;
@@ -2453,11 +2510,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     display: flex;
     align-items: center;
     width: 100%;
-    overflow: hidden;
-    margin: -3px;
-}
-.buy__solutions-video video{
-    margin: 1px;
+    position: relative;
 }
 .buy__payments{
     display: flex;
@@ -2608,12 +2661,6 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     .buy__solutions {
         width: 46.495vw;
         height: 33.711vw;
-    }
-    .buy__solutions-video{
-        margin: -0.221vw;
-    }
-    .buy__solutions-video video{
-        margin: 0.074vw;
     }
     .buy__payments{
         margin-top: 2.206vw;
@@ -2772,12 +2819,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         max-width: 370px;
         margin: -40px auto 0;
     }
-    .buy__solutions-video{
-        margin: -3px;
-    }
-    .buy__solutions-video video{
-        margin: 1px;
-    }
+
     .buy__payments{
         margin-top: 30px;
         gap: 10px;
@@ -3008,6 +3050,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 }
 .otc__title .exchange-icon{
     font-size: 32px;
+    font-style: normal;
 }
 .otc__block{
     display: grid;
@@ -3543,6 +3586,10 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     }
 }
 @media (max-width: 768px) {
+    .howinteg__slider-pagination{
+        display: flex !important;
+        margin-top: 20px;
+    }
     .howinteg{
         margin-top: 150px;
     }
@@ -4871,5 +4918,15 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         display: inline-block;
         margin-right: 15px;
         flex-shrink: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .keycap__item.hover-override .keycap__item-content,
+    .enables__item.hover-override .enables__item-content,
+    .technology__item.hover-override .technology__item-content {
+        transform: translateX(0) !important; 
+        opacity: 1 !important; 
+        z-index: 10 !important; 
     }
 }

@@ -25,6 +25,10 @@ if(document.querySelector('.solutions__slider')){
             disableOnInteraction: false, 
             pauseOnMouseEnter: true
         },
+        pagination: {
+            el: ".howinteg__slider-pagination",
+            clickable: true,
+        },
     });
 
     const selectButtons = document.querySelectorAll('.howinteg__select-btn');
@@ -1189,25 +1193,9 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-	const whoisitItems = document.querySelectorAll('.technology__item-content')
-	const whoisitGroup1 = [whoisitItems[0], whoisitItems[2], whoisitItems[4]]
-	const whoisitGroup2 = [whoisitItems[1], whoisitItems[3]]
-	let showGroup1 = true
-	function toggleGroups() {
-		if (showGroup1) {
-			whoisitGroup1.forEach((el) => el.classList.add('active'))
-			whoisitGroup2.forEach((el) => el.classList.remove('active'))
-		} else {
-			whoisitGroup2.forEach((el) => el.classList.add('active'))
-			whoisitGroup1.forEach((el) => el.classList.remove('active'))
-		}
-		showGroup1 = !showGroup1
-	}
-	toggleGroups()
-	setInterval(toggleGroups, 3000)
 
-	const heroIcons = document.querySelector('.hero__icons')
+
+    const heroIcons = document.querySelector('.hero__icons')
 	if (heroIcons) {
 		const observer = new IntersectionObserver(
 			(entries, observer) => {
@@ -1224,7 +1212,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		)
 		observer.observe(heroIcons)
 	}
-})
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1233,13 +1220,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const mediaQueryLarge = window.matchMedia(`(min-width: ${breakpoint + 1}px)`);
     const mediaQuerySmall = window.matchMedia(`(max-width: ${breakpoint}px)`);
 
-    function setupGroupToggle(selector, group1Indices, group2Indices, minElements) {
-        const items = document.querySelectorAll(selector);
+    function setupGroupToggle(selector, itemSelector, group1Indices, group2Indices, minElements) {
+        const contentItems = document.querySelectorAll(selector);
         
-        if (items.length < minElements) return; 
+        if (contentItems.length < minElements) return; 
+        
+        const itemElements = document.querySelectorAll(itemSelector);
+        
+        if (itemElements.length === 0) return;
 
-        const group1 = group1Indices.map(index => items[index]).filter(el => el != null);
-        const group2 = group2Indices.map(index => items[index]).filter(el => el != null);
+        const group1 = group1Indices.map(index => contentItems[index]).filter(el => el != null);
+        const group2 = group2Indices.map(index => contentItems[index]).filter(el => el != null);
 
         if (group1.length === 0 || group2.length === 0) return;
         
@@ -1256,36 +1247,56 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             showGroup1 = !showGroup1;
         }
+        
+        function stopToggle() {
+            if (intervalId !== null) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
 
-        function handleMediaQueryChange(e) {
-            if (e.matches) {
-                if (intervalId === null) {
-                    showGroup1 = true; 
-                    toggleGroups(); 
+        function startToggle() {
+             if (intervalId === null) {
+                if (mediaQueryLarge.matches) {
                     intervalId = setInterval(toggleGroups, 3000);
-                }
-            } else {
-                if (intervalId !== null) {
-                    clearInterval(intervalId);
-                    intervalId = null;
-                    [...group1, ...group2].forEach((el) => el.classList.remove('active'));
                 }
             }
         }
-        
+
+        function handleMediaQueryChange(e) {
+            if (e.matches) {
+                startToggle();
+            } else {
+                stopToggle();
+                [...group1, ...group2].forEach((el) => el.classList.remove('active'));
+            }
+        }
+
+        itemElements.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.classList.add('hover-override'); 
+                // stopToggle() удален
+            });
+
+            item.addEventListener('mouseleave', () => {
+                item.classList.remove('hover-override');
+                // startToggle() удален
+            });
+        });
+
         mediaQueryLarge.addListener(handleMediaQueryChange);
         handleMediaQueryChange(mediaQueryLarge);
     }
     
-    setupGroupToggle('.keycap__item-content', [0, 3, 5], [1, 2, 4], 6);
-    setupGroupToggle('.enables__item-content', [0, 2, 4], [1, 3], 5);
-    setupGroupToggle('.technology__item-content', [0, 2], [1, 3], 4);
+    setupGroupToggle('.keycap__item-content', '.keycap__item', [0, 3, 5], [1, 2, 4], 6);
+    setupGroupToggle('.enables__item-content', '.enables__item', [0, 2, 4], [1, 3], 5);
+    setupGroupToggle('.technology__item-content', '.technology__item', [0, 2, 4], [1, 3], 4); 
 
 
     let keycapSlider = null;
     let enablesSlider = null;
     let technologySlider = null;
-
+    
     function handleSliderInit(selector, paginationSelector, currentSlider) {
         const isMobile = mediaQuerySmall.matches;
 
@@ -1871,3 +1882,34 @@ solutionsItems.forEach(item => {
     window.addEventListener('resize', initScroll);
 })();
 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const OFFSET = 50;
+    function scrollWithOffset(id) {
+        const el = document.querySelector(id);
+        if (!el) return;
+
+        const y = el.getBoundingClientRect().top + window.pageYOffset - OFFSET;
+
+        window.scrollTo({
+            top: y,
+            behavior: "smooth"
+        });
+    }
+    if (window.location.hash) {
+        setTimeout(() => {
+            scrollWithOffset(window.location.hash);
+        }, 1);
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener("click", e => {
+            const hash = link.getAttribute("href");
+            if (hash.length > 1) {
+                e.preventDefault();
+                history.pushState(null, "", hash);
+                scrollWithOffset(hash);
+            }
+        });
+    });
+});

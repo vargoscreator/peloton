@@ -410,7 +410,7 @@
             <div class="container">
                 <div class="discuss__inner">
                     <div class="discuss__bg">
-                        <div class="buy__solutions-video" style="width: 100%; aspect-ratio: 734.673 / 802.112; position: relative; overflow: hidden;">
+                       <div class="buy__solutions-video" style="width: 100%; aspect-ratio: 734 / 802; position: relative;">
                             <video autoplay muted loop playsinline
                                 style="width: 100%; height: 100%; object-fit: cover; clip-path: url(#discuss-clip); -webkit-clip-path: url(#discuss-clip);">
                                 <source src="decorative.mp4" type="video/mp4" />
@@ -667,8 +667,21 @@
                             <path d="M12.1152 10.8311L20.7314 2.21582L22.1455 3.63086L13.5303 12.2461L21.6533 20.3691L20.2393 21.7832L12.1162 13.6602L3.76074 22.0156L2.34668 20.6016L10.7012 12.2451L1.85449 3.39844L3.26855 1.98438L12.1152 10.8311Z" fill="#262932"/>
                         </svg>
                     </button>
-                    <h2 class="popup__title">Get in Touch</h2>
+                    <h2 class="popup__title">Get in Touch | OTC</h2>
                     <form class="popup__form" novalidate>
+                        <div class="popup__form-block">
+                            <div class="popup__form-radios">
+                                <label class="popup__form-radio--item">
+                                    <input type="radio" name="OTC types" value="Legal" checked>
+                                    <span>Legal</span>
+                                </label>
+                                <label class="popup__form-radio--item">
+                                    <input type="radio" name="OTC types" value="Individual">
+                                    <span>Individual</span>
+                                </label>
+                            </div>
+                            <p class="popup__form-error">Enter you name*</p>
+                        </div>
                         <div class="popup__form-block">
                             <input class="popup__form-input" type="text" id="your-name" name="Your name" placeholder="Your name" required>
                             <p class="popup__form-error">Enter you name*</p>
