@@ -14,6 +14,43 @@ let swiper = new Swiper(".solutions__slider", {
         },
     },
 });
+if(document.querySelector('.solutions__slider')){
+    let howintegSlider = new Swiper(".howinteg__slider", {
+        loop: true, 
+        spaceBetween: 10,
+        slidesPerView: 1,
+        allowTouchMove: true,
+        autoplay: {
+            delay: 2500, 
+            disableOnInteraction: false, 
+            pauseOnMouseEnter: true
+        },
+    });
+
+    const selectButtons = document.querySelectorAll('.howinteg__select-btn');
+
+    selectButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            selectButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            howintegSlider.slideTo(index);
+        });
+    });
+
+    howintegSlider.on('slideChange', function () {
+        const realIndex = howintegSlider.realIndex; 
+        
+        selectButtons.forEach((btn, index) => {
+            if (index === realIndex) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    });
+
+    selectButtons[0].classList.add('active');
+}
 
 
 
@@ -1154,7 +1191,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
 	const whoisitItems = document.querySelectorAll('.technology__item-content')
-	const whoisitGroup1 = [whoisitItems[0], whoisitItems[2]]
+	const whoisitGroup1 = [whoisitItems[0], whoisitItems[2], whoisitItems[4]]
 	const whoisitGroup2 = [whoisitItems[1], whoisitItems[3]]
 	let showGroup1 = true
 	function toggleGroups() {
@@ -1168,7 +1205,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		showGroup1 = !showGroup1
 	}
 	toggleGroups()
-	setInterval(toggleGroups, 1500)
+	setInterval(toggleGroups, 3000)
 
 	const heroIcons = document.querySelector('.hero__icons')
 	if (heroIcons) {
@@ -1225,7 +1262,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (intervalId === null) {
                     showGroup1 = true; 
                     toggleGroups(); 
-                    intervalId = setInterval(toggleGroups, 1500);
+                    intervalId = setInterval(toggleGroups, 3000);
                 }
             } else {
                 if (intervalId !== null) {
@@ -1513,28 +1550,186 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header');
     const burger = document.querySelector('.header__burger');
-    const menu = document.querySelector('.header__menu ul');
+    const menuContainer = document.querySelector('.header__menu'); 
     const closeButton = document.querySelector('.header__menu-close');
-    if (burger) {
-        burger.addEventListener('click', () => {
-            header.classList.toggle('show-menu');
+    
+    const menuItems = menuContainer ? menuContainer.querySelectorAll('ul li') : [];
+    const menuButton = menuContainer ? menuContainer.querySelector('.header__btn') : null;
+    const allLinks = menuContainer ? menuContainer.querySelectorAll('a') : [];
+    
+    const staggeredElements = menuButton ? [...menuItems, menuButton] : [...menuItems];
+
+    const MOBILE_BREAKPOINT = 768;
+    const duration = 0.5;
+    const staggerTime = 0.04;
+    const menuStart = '100%';
+    
+    let isMobileView = window.innerWidth < MOBILE_BREAKPOINT;
+
+    const openMenuAnimation = () => {
+        gsap.set(menuContainer, { visibility: 'visible', pointerEvents: 'auto' });
+        header.classList.add('show-menu');
+
+        const tl = gsap.timeline({ defaults: { duration: duration, ease: 'power3.out' } });
+
+        tl.to(menuContainer, { x: '0%' }, 0); 
+        tl.to(closeButton, 
+            { opacity: 1, scale: 1, duration: 0.3 }, 
+            '<0.1'
+        );
+        tl.to(staggeredElements, 
+            { opacity: 1, y: 0, stagger: staggerTime },
+            '<0.1'
+        );
+    };
+
+    const closeMenuAnimation = (callback) => {
+        header.classList.remove('show-menu');
+        
+        const tl = gsap.timeline({ 
+            defaults: { duration: duration * 0.8, ease: 'power2.in' },
+            onComplete: () => {
+                gsap.set(menuContainer, { visibility: 'hidden', pointerEvents: 'none', x: menuStart });
+                if (callback) callback();
+            }
         });
-    }
-    if (closeButton) {
-        closeButton.addEventListener('click', () => {
-            header.classList.remove('show-menu');
-        });
-    }
-    document.addEventListener('click', (event) => {
-        const isClickInsideHeader = header.contains(event.target);
-        const isClickOnBurger = burger && burger.contains(event.target);
-        if (header.classList.contains('show-menu') && !isClickInsideHeader) {
-            header.classList.remove('show-menu');
+        
+        const reversedStaggeredElements = [...staggeredElements].reverse();
+        
+        tl.to(reversedStaggeredElements, 
+            { opacity: 0, y: -20, stagger: staggerTime * 0.8 },
+            0
+        );
+        tl.to(closeButton, 
+            { opacity: 0, scale: 0.5, duration: 0.3 }, 
+            0
+        );
+        tl.to(menuContainer, 
+            { x: menuStart }, 
+            '<0.1'
+        );
+    };
+
+    const isAnimating = () => menuContainer && menuContainer.classList.contains('is-animating');
+    const setAnimating = (state) => {
+        if (menuContainer) {
+            state ? menuContainer.classList.add('is-animating') : menuContainer.classList.remove('is-animating');
         }
-        if (menu && menu.contains(event.target) && event.target.tagName === 'A') {
-            header.classList.remove('show-menu');
+    };
+    
+    const instantOpen = () => {
+        header.classList.add('show-menu');
+        if (menuContainer) {
+            gsap.set(menuContainer, { clearProps: 'all', visibility: 'visible', pointerEvents: 'auto' });
+            gsap.set(staggeredElements, { clearProps: 'all', opacity: 1, y: 0 });
+            gsap.set(closeButton, { clearProps: 'all', opacity: 1, scale: 1 });
         }
-    });
+    };
+
+    const instantClose = () => {
+        header.classList.remove('show-menu');
+        if (menuContainer) {
+            gsap.set(menuContainer, { clearProps: 'all', visibility: 'hidden', pointerEvents: 'none' });
+            gsap.set(staggeredElements, { clearProps: 'all' });
+            gsap.set(closeButton, { clearProps: 'all' });
+        }
+    };
+
+    const setupInitialStyles = () => {
+        if (menuContainer) {
+            gsap.set(menuContainer, { clearProps: 'all' });
+            if (isMobileView) {
+                gsap.set(menuContainer, { x: menuStart, visibility: 'hidden', pointerEvents: 'none' });
+                gsap.set(staggeredElements, { opacity: 0, y: 20 });
+                gsap.set(closeButton, { opacity: 0, scale: 0.5 });
+            } else {
+                gsap.set(menuContainer, { visibility: 'hidden', pointerEvents: 'none' });
+            }
+        }
+    };
+
+    const mobileHandler = (action) => {
+        if (!isAnimating()) {
+            setAnimating(true);
+            const callback = () => setAnimating(false);
+            
+            if (action === 'open') {
+                openMenuAnimation();
+                gsap.delayedCall(duration + staggerTime * staggeredElements.length, callback);
+            } else {
+                closeMenuAnimation(callback);
+            }
+        }
+    };
+
+    const checkViewport = () => {
+        const newIsMobileView = window.innerWidth < MOBILE_BREAKPOINT;
+        
+        if (newIsMobileView !== isMobileView) {
+            isMobileView = newIsMobileView;
+            setupInitialStyles();
+
+            if (header.classList.contains('show-menu')) {
+                if (!isMobileView) {
+                    instantOpen();
+                } else {
+                    instantClose();
+                }
+            }
+        }
+        
+        if (burger) {
+            burger.onclick = null;
+            closeButton.onclick = null;
+        }
+
+        if (isMobileView) {
+            if (burger) {
+                burger.onclick = () => mobileHandler('open');
+            }
+            if (closeButton) {
+                closeButton.onclick = () => mobileHandler('close');
+            }
+            document.onclick = (event) => {
+                const isClickInsideHeader = header.contains(event.target);
+                const isClickOnBurger = burger && burger.contains(event.target);
+                if (header.classList.contains('show-menu') && !isClickInsideHeader && !isAnimating()) {
+                    mobileHandler('close');
+                }
+            };
+            allLinks.forEach(link => {
+                link.onclick = (event) => {
+                    if (!isAnimating()) mobileHandler('close');
+                };
+            });
+
+        } else {
+            if (burger) {
+                burger.onclick = () => header.classList.toggle('show-menu');
+            }
+            if (closeButton) {
+                closeButton.onclick = () => header.classList.remove('show-menu');
+            }
+            document.onclick = (event) => {
+                const isClickInsideHeader = header.contains(event.target);
+                const isClickOnBurger = burger && burger.contains(event.target);
+                if (header.classList.contains('show-menu') && !isClickInsideHeader && !isClickOnBurger) {
+                    header.classList.remove('show-menu');
+                }
+            };
+            allLinks.forEach(link => {
+                link.onclick = () => header.classList.remove('show-menu');
+            });
+
+            if (!header.classList.contains('show-menu')) {
+                instantClose();
+            }
+        }
+    };
+
+    checkViewport();
+
+    window.addEventListener('resize', checkViewport);
 });
 
 

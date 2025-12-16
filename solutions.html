@@ -54,7 +54,7 @@
                                 <a href="#">Resources</a>
                             </li>
                         </ul>
-                        <a class="header__btn btn" href="#" data-popup-open="getintouch">Talk to the team</a>
+                        <a class="header__btn btn-2" href="#" data-popup-open="getintouch">Talk to the team</a>
                     </nav>
                     <a class="header__btn btn" href="#" data-popup-open="getintouch">Talk to the team</a>
                     <a class="header__top-descr show-mobile" href="#">English</a>
@@ -344,7 +344,7 @@
                             <li>MiCA-aligned 	reporting standards</li>
                         </ul>
                         <div class="aboutinfo__btn">
-                            <a class="btn" href="#">Book a call with our OTC team</a>
+                            <a class="btn" href="#" data-popup-open="getintouchotc">Book a call with our OTC team</a>
                         </div>
                     </div>
                 </div>
@@ -372,7 +372,7 @@
                             <li>Dedicated 	OTC manager for every client</li>
                         </ul>
                         <div class="aboutinfo__btn">
-                            <a class="btn" href="#">Request integration access</a>
+                            <a class="btn" href="#" data-popup-open="getintouchotc">Contact Team</a>
                         </div>
                     </div>
                 </div>
@@ -399,7 +399,7 @@
                             <li>Optional 	white-label 	OTC interface 	for partners</li>
                         </ul>
                         <div class="aboutinfo__btn">
-                            <a class="btn" href="#">Request a custom quote</a>
+                            <a class="btn" href="#" data-popup-open="getintouchotc">Contact the Team</a>
                         </div>
                     </div>
                 </div>
@@ -636,6 +636,53 @@
                                 <input type="hidden" name="monthly_volume">
                             </div>
                             <p class="popup__form-error">Choose expected monthly volume*</p>
+                        </div>
+                        <div class="popup__form-block">
+                            <label class="popup__form-label" for="apply-message">Message</label>
+                            <textarea class="popup__form-textarea" id="apply-message" required name="message"></textarea>
+                            <p class="popup__form-error">Write your message*</p>
+                        </div>
+                        <div class="popup__form-agree">
+                            <label>
+                                <input type="checkbox" name="agreed" required>
+                                <span></span>
+                            </label>
+                            <p class="popup__form-agree--descr">I consent to data processing (<a href="privacy-policy.html">Privacy Policy</a>)</p>
+                        </div>
+                        <button class="popup__form-send btn-2" type="submit">Send message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="popup" data-popup="getintouchotc">
+            <div class="container">
+                <div class="popup__inner">
+                    <div class="popup__image">
+                        <img src="img/hero-logo.svg" alt="">
+                    </div>
+                    <button type="button" class="popup__close" aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12.1152 10.8311L20.7314 2.21582L22.1455 3.63086L13.5303 12.2461L21.6533 20.3691L20.2393 21.7832L12.1162 13.6602L3.76074 22.0156L2.34668 20.6016L10.7012 12.2451L1.85449 3.39844L3.26855 1.98438L12.1152 10.8311Z" fill="#262932"/>
+                        </svg>
+                    </button>
+                    <h2 class="popup__title">Get in Touch</h2>
+                    <form class="popup__form" novalidate>
+                        <div class="popup__form-block">
+                            <input class="popup__form-input" type="text" id="your-name" name="Your name" placeholder="Your name" required>
+                            <p class="popup__form-error">Enter you name*</p>
+                        </div>
+                        <div class="popup__form-block">
+                            <input class="popup__form-input" type="email" id="your-email" name="Your email" placeholder="Your email" required>
+                            <p class="popup__form-error">Enter your email*</p>
+                        </div>
+                        <div class="popup__form-block">
+                            <input class="popup__form-input" type="text" id="tax-residence" name="Tax residence of the applicant" placeholder="Tax residence of the applicant" required>
+                            <p class="popup__form-error">Enter tax recidance of the applicant*</p>
+                        </div>
+                        <div class="popup__form-block">
+                            <input class="popup__form-input" type="number" id="amount" name="Amount you are interested to change, EURO" placeholder="Amount you are interested to change, EURO">
                         </div>
                         <div class="popup__form-block">
                             <label class="popup__form-label" for="apply-message">Message</label>
