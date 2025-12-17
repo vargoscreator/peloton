@@ -1456,8 +1456,29 @@ selects.forEach((select) => {
 });
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
+    const mobileMore = document.querySelector('.mobile-more');
+    if (mobileMore) {
+        mobileMore.addEventListener('click', function(event) {
+            if (event.target.closest('.sub-menu a')) {
+                mobileHandler('close'); 
+            }
+            if (event.target.tagName === 'SPAN' || event.target.closest('a') === this.firstElementChild) {
+                event.preventDefault();
+                event.stopPropagation();
+                this.classList.toggle('active-menu');
+                return;
+            }
+            if (event.target.closest('.sub-menu')) {
+                return; 
+            }
+            event.preventDefault();
+            event.stopPropagation();
+            this.classList.toggle('active-menu');
+        });
+    }
+
+
     const header = document.querySelector('.header');
     const burger = document.querySelector('.header__burger');
     const menuContainer = document.querySelector('.header__menu'); 
@@ -1998,15 +2019,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-const mobileMore = document.querySelector('.mobile-more');
 
-if (mobileMore) {
-    mobileMore.addEventListener('click', function(event) {
-        if (event.target.tagName === 'SPAN') {
-            return; 
+window.addEventListener('load', () => {
+    if (window.location.hash) {
+        const targetId = window.location.hash;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            setTimeout(() => {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }, 100);
         }
-        event.preventDefault();
-        event.stopPropagation();
-        this.classList.toggle('active-menu');
-    });
-}
+    }
+});
