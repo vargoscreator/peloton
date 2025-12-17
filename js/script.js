@@ -409,6 +409,15 @@ window.addEventListener('DOMContentLoaded', () => {
     );
 
     buyTl.from(
+        '.buy__payments',
+        {
+            x: -20,
+            opacity: 0,
+        },
+        '-=0.4'
+    );
+
+    buyTl.from(
         '.buy__btn',
         {
             y: 20,
@@ -1446,116 +1455,6 @@ selects.forEach((select) => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const forms = document.querySelectorAll(".popup__form");
-
-  forms.forEach(form => {
-    const inputs = form.querySelectorAll("input, textarea");
-    const checkbox = form.querySelector('input[name="agreed"]');
-    const customSelects = form.querySelectorAll(".custom-select[data-required]");
-    inputs.forEach(input => {
-      input.addEventListener("input", () => {
-        clearError(input);
-      });
-    });
-    form.querySelectorAll('input[name="name"]').forEach(input => {
-      input.addEventListener("input", () => {
-        input.value = input.value.replace(/[^a-zA-Zа-яА-ЯёЁ\s]/g, "");
-        clearError(input);
-      });
-    });
-
-    form.querySelectorAll('input[name="phone"]').forEach(input => {
-      input.addEventListener("input", () => {
-        input.value = input.value.replace(/\D/g, "").slice(0, 15);
-        clearError(input);
-      });
-    });
-
-    customSelects.forEach(select => {
-      const selectedSpan = select.querySelector(".custom-select-selected span");
-      const hiddenInput = select.querySelector('input[type="hidden"]');
-
-      select.querySelectorAll(".custom-select-option").forEach(option => {
-        option.addEventListener("click", () => {
-          const value = option.textContent.trim();
-          selectedSpan.textContent = value;
-          if (hiddenInput) hiddenInput.value = value;
-          select.classList.add("selected");
-          clearError(select);
-        });
-      });
-    });
-    if (checkbox) {
-      checkbox.addEventListener("change", () => {
-        const block = checkbox.closest(".popup__form-agree");
-        if (block) block.classList.toggle("error", !checkbox.checked);
-      });
-    }
-    form.addEventListener("submit", e => {
-      e.preventDefault();
-      let isValid = true;
-      form.querySelectorAll(".popup__form-error.active").forEach(el => el.classList.remove("active"));
-      form.querySelectorAll(".popup__form-block.error").forEach(el => el.classList.remove("error"));
-      if (checkbox?.closest(".popup__form-agree")) {
-        checkbox.closest(".popup__form-agree").classList.remove("error");
-      }
-
-      inputs.forEach(input => {
-        if (input.type === "checkbox") return;
-
-        const value = input.value.trim();
-        const block = input.closest(".popup__form-block") || input.closest(".popup__form-agree");
-        const error = block?.querySelector(".popup__form-error");
-
-        if (input.hasAttribute("required") && !value) {
-          showError(block, error);
-          isValid = false;
-          return;
-        }
-
-        if (input.type === "email" && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-          showError(block, error);
-          isValid = false;
-        }
-
-        if (input.type === "tel" && value && (value.length < 6 || value.length > 15)) {
-          showError(block, error);
-          isValid = false;
-        }
-      });
-      customSelects.forEach(select => {
-        const selectedText = select.querySelector(".custom-select-selected span").textContent.trim();
-        const placeholder = select.querySelector(".custom-select-selected span").dataset.placeholder || "Service Requested";
-        const block = select.closest(".popup__form-block");
-        const error = block?.querySelector(".popup__form-error");
-
-        if (selectedText === placeholder || !select.classList.contains("selected")) {
-          showError(block, error);
-          isValid = false;
-        }
-      });
-      if (checkbox && !checkbox.checked) {
-        checkbox.closest(".popup__form-agree").classList.add("error");
-        isValid = false;
-      }
-      if (isValid) {
-        alert("Форма успешно отправлена!");
-        console.log("Form data:", Object.fromEntries(new FormData(form)));
-      }
-    });
-  });
-  function clearError(el) {
-    const block = el.closest(".popup__form-block") || el.closest(".popup__form-agree");
-    const error = block?.querySelector(".popup__form-error");
-    if (error) error.classList.remove("active");
-    if (block) block.classList.remove("error");
-  }
-  function showError(block, errorEl) {
-    if (block) block.classList.add("error");
-    if (errorEl) errorEl.classList.add("active");
-  }
-});
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1567,7 +1466,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuItems = menuContainer ? menuContainer.querySelectorAll('ul li') : [];
     const menuButton = menuContainer ? menuContainer.querySelector('.header__btn') : null;
     const allLinks = menuContainer ? menuContainer.querySelectorAll('a') : [];
-    
     const staggeredElements = menuButton ? [...menuItems, menuButton] : [...menuItems];
 
     const MOBILE_BREAKPOINT = 768;
@@ -1658,6 +1556,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     };
+    
+    setupInitialStyles();
 
     const mobileHandler = (action) => {
         if (!isAnimating()) {
@@ -1909,6 +1809,149 @@ document.addEventListener("DOMContentLoaded", () => {
                 e.preventDefault();
                 history.pushState(null, "", hash);
                 scrollWithOffset(hash);
+            }
+        });
+    });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    function clearError(el) {
+        const block = el.closest(".popup__form-block") || el.closest(".popup__form-agree");
+        const error = block?.querySelector(".popup__form-error");
+        if (error) error.classList.remove("active");
+        if (block) block.classList.remove("error");
+    }
+
+    function showError(block, errorEl) {
+        if (block) block.classList.add("error");
+        if (errorEl) errorEl.classList.add("active");
+    }
+
+    const forms = document.querySelectorAll(".popup__form");
+    const MAX_AMOUNT = 100000000;
+
+    forms.forEach(form => {
+        const inputs = form.querySelectorAll("input, textarea");
+        const checkbox = form.querySelector('input[name="agreed"]');
+        const customSelects = form.querySelectorAll(".custom-select[data-required]");
+
+        inputs.forEach(input => {
+            input.addEventListener("input", () => {
+                clearError(input);
+            });
+        });
+
+        form.querySelectorAll('input[name*="name"]').forEach(input => {
+            input.addEventListener("input", () => {
+                input.value = input.value.replace(/[^a-zA-Zа-яА-ЯёЁ\s-]/g, "");
+                clearError(input);
+            });
+        });
+
+        form.querySelectorAll('input[type="tel"], input[name*="phone"]').forEach(input => {
+            input.addEventListener("input", () => {
+                input.value = input.value.replace(/\D/g, "").slice(0, 15);
+                clearError(input);
+            });
+        });
+
+        const amountInput = form.querySelector('input#amount');
+        if (amountInput) {
+            amountInput.addEventListener('input', () => {
+                let value = parseInt(amountInput.value, 10);
+                
+                if (isNaN(value) || value < 1) {
+                    amountInput.value = '';
+                    return;
+                }
+
+                if (value > MAX_AMOUNT) {
+                    amountInput.value = MAX_AMOUNT;
+                }
+
+                clearError(amountInput);
+            });
+        }
+
+        customSelects.forEach(select => {
+            const selectedSpan = select.querySelector(".custom-select-selected span");
+            const hiddenInput = select.querySelector('input[type="hidden"]');
+
+            select.querySelectorAll(".custom-select-option").forEach(option => {
+                option.addEventListener("click", () => {
+                    const value = option.textContent.trim();
+                    selectedSpan.textContent = value;
+                    if (hiddenInput) hiddenInput.value = value;
+                    select.classList.add("selected");
+                    clearError(select);
+                });
+            });
+        });
+
+        if (checkbox) {
+            checkbox.addEventListener("change", () => {
+                const block = checkbox.closest(".popup__form-agree");
+                if (block) block.classList.toggle("error", !checkbox.checked);
+                clearError(checkbox);
+            });
+        }
+
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            let isValid = true;
+
+            form.querySelectorAll(".popup__form-error.active").forEach(el => el.classList.remove("active"));
+            form.querySelectorAll(".popup__form-block.error").forEach(el => el.classList.remove("error"));
+            if (checkbox?.closest(".popup__form-agree")) {
+                checkbox.closest(".popup__form-agree").classList.remove("error");
+            }
+
+            inputs.forEach(input => {
+                if (input.type === "checkbox" || input.type === "radio") return;
+
+                const value = input.value.trim();
+                const block = input.closest(".popup__form-block") || input.closest(".popup__form-agree");
+                const error = block?.querySelector(".popup__form-error");
+
+                if (input.hasAttribute("required") && !value) {
+                    showError(block, error);
+                    isValid = false;
+                    return;
+                }
+
+                if (input.type === "email" && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                    showError(block, error);
+                    isValid = false;
+                }
+
+                if ((input.type === "tel" || input.name === "phone_number") && value && (value.replace(/\D/g, "").length < 6 || value.replace(/\D/g, "").length > 15)) {
+                    showError(block, error);
+                    isValid = false;
+                }
+            });
+
+            customSelects.forEach(select => {
+                const selectedText = select.querySelector(".custom-select-selected span").textContent.trim();
+                const placeholder = select.querySelector(".custom-select-selected span").dataset.placeholder || select.querySelector(".custom-select-selected span").textContent.trim();
+                const block = select.closest(".popup__form-block");
+                const error = block?.querySelector(".popup__form-error");
+
+                if (!select.classList.contains("selected") || (placeholder && selectedText === placeholder)) {
+                    showError(block, error);
+                    isValid = false;
+                }
+            });
+
+            if (checkbox && !checkbox.checked) {
+                checkbox.closest(".popup__form-agree").classList.add("error");
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert("Форма успешно отправлена!");
+                console.log("Form data:", Object.fromEntries(new FormData(form)));
             }
         });
     });

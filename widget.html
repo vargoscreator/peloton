@@ -78,6 +78,7 @@
                         <div class="buy__icon">
                             <img src="img/built.svg" alt="">
                         </div>
+                        
                         <div class="buy__about">
                             <h1 class="buy__title title">On-Ramp Widget for Fast, Compliant Crypto Purchases</h1>
                             <span class="buy__line line-icon"></span>
@@ -523,67 +524,127 @@
                     <h2 class="popup__title">Get in Touch</h2>
                     <form class="popup__form" novalidate>
                         <div class="popup__form-block">
-                            <input class="popup__form-input" type="text" id="company-name" name="Company name" placeholder="Company name" required>
-                            <p class="popup__form-error">Enter company name*</p>
+                            <input
+                            class="popup__form-input"
+                            type="text"
+                            id="company-name"
+                            name="company_name"
+                            placeholder="Company name"
+                            required
+                            minlength="2"
+                            maxlength="50"
+                            pattern="[a-zA-Zа-яА-ЯёЁ\s\-]+"
+                            title="Only letters, spaces, and dash are allowed"
+                            >
+                            <p class="popup__form-error">Enter a valid company name*</p>
                         </div>
                         <div class="popup__form-block">
-                            <input class="popup__form-input" type="text" id="company-website" name="Company website" placeholder="Company website" required>
-                            <p class="popup__form-error">Enter company website*</p>
+                            <input
+                            class="popup__form-input"
+                            type="url"
+                            id="company-website"
+                            name="company_website"
+                            placeholder="Company website"
+                            required
+                            >
+                            <p class="popup__form-error">Enter a valid website*</p>
                         </div>
                         <div class="popup__form-block">
-                            <input class="popup__form-input" type="email" id="company-email" name="Company email" placeholder="Company email" required>
-                            <p class="popup__form-error">Enter company email*</p>
+                            <input
+                            class="popup__form-input"
+                            type="email"
+                            id="company-email"
+                            name="company_email"
+                            placeholder="Company email"
+                            required
+                            >
+                            <p class="popup__form-error">Enter a valid email*</p>
                         </div>
                         <div class="popup__form-block">
                             <div class="custom-select" data-required="true">
-                                <div class="custom-select-selected"><span>Business Type</span></div>
-                                <div class="custom-select-dropdown">
-                                    <span class="custom-select-option">Digital Services (SaaS, VPN, hosting, subscriptions)</span>
-                                    <span class="custom-select-option">Fintech Platforms</span>
-                                    <span class="custom-select-option">E-commerce</span>
-                                    <span class="custom-select-option">Gaming</span>
-                                    <span class="custom-select-option">Travel</span>
-                                    <span class="custom-select-option">Other</span>
-                                </div>
-                                <input type="hidden" name="business_type">
+                            <div class="custom-select-selected"><span>Business Type</span></div>
+                            <div class="custom-select-dropdown">
+                                <span class="custom-select-option">Digital Services (SaaS, VPN, hosting, subscriptions)</span>
+                                <span class="custom-select-option">Fintech Platforms</span>
+                                <span class="custom-select-option">E-commerce</span>
+                                <span class="custom-select-option">Gaming</span>
+                                <span class="custom-select-option">Travel</span>
+                                <span class="custom-select-option">Other</span>
+                            </div>
+                            <input type="hidden" name="business_type" required>
                             </div>
                             <p class="popup__form-error">*Select business type</p>
                         </div>
                         <div class="popup__form-block">
-                            <input class="popup__form-input" type="text" id="country-of-registration" name="Country of registration" placeholder="Country of registration" required>
-                            <p class="popup__form-error">Enter country of registration*</p>
+                            <input
+                            class="popup__form-input"
+                            type="text"
+                            id="country-of-registration"
+                            name="country_of_registration"
+                            placeholder="Country of registration"
+                            required
+                            pattern="[a-zA-Zа-яА-ЯёЁ\s\-]+"
+                            title="Only letters, spaces, and dash are allowed"
+                            >
+                            <p class="popup__form-error">Enter a valid country*</p>
                         </div>
                         <div class="popup__form-block">
-                            <input class="popup__form-input" type="text" id="you-name" name="You name" placeholder="You name" required>
-                            <p class="popup__form-error">Enter you name*</p>
+                            <input
+                            class="popup__form-input"
+                            type="text"
+                            id="you-name"
+                            name="you_name"
+                            placeholder="Your name"
+                            required
+                            pattern="[a-zA-Zа-яА-ЯёЁ\s\-]+"
+                            minlength="2"
+                            maxlength="50"
+                            title="Only letters, spaces, and dash are allowed"
+                            >
+                            <p class="popup__form-error">Enter a valid name*</p>
                         </div>
                         <div class="popup__form-block">
-                            <input class="popup__form-input" type="tel" id="Phone-number" name="Phone number" placeholder="Phone number" required>
-                            <p class="popup__form-error">Enter your phone number*</p>
+                            <input
+                            class="popup__form-input"
+                            type="tel"
+                            name="phone_number"
+                            placeholder="Phone number"
+                            required
+                            pattern="\+?[0-9\s\-]{7,20}"
+                            title="Enter a valid phone number"
+                            >
+                            <p class="popup__form-error">Enter a valid phone number*</p>
                         </div>
                         <div class="popup__form-block">
                             <div class="custom-select" data-required="true">
-                                <div class="custom-select-selected"><span>Expected volume</span></div>
-                                <div class="custom-select-dropdown">
-                                    <span class="custom-select-option">€10,000</span>
-                                    <span class="custom-select-option">€10,000 – €50,000</span>
-                                    <span class="custom-select-option">€50,000 – €250,000</span>
-                                    <span class="custom-select-option">€250,000 – €1,000,000</span>
-                                    <span class="custom-select-option">> €1,000,000</span>
-                                </div>
-                                <input type="hidden" name="monthly_volume">
+                            <div class="custom-select-selected"><span>Expected volume</span></div>
+                            <div class="custom-select-dropdown">
+                                <span class="custom-select-option">€10,000</span>
+                                <span class="custom-select-option">€10,000 – €50,000</span>
+                                <span class="custom-select-option">€50,000 – €250,000</span>
+                                <span class="custom-select-option">€250,000 – €1,000,000</span>
+                                <span class="custom-select-option">> €1,000,000</span>
+                            </div>
+                            <input type="hidden" name="monthly_volume" required>
                             </div>
                             <p class="popup__form-error">Choose expected monthly volume*</p>
                         </div>
                         <div class="popup__form-block">
                             <label class="popup__form-label" for="apply-message">Message</label>
-                            <textarea class="popup__form-textarea" id="apply-message" required name="message"></textarea>
+                            <textarea
+                            class="popup__form-textarea"
+                            id="apply-message"
+                            name="message"
+                            required
+                            minlength="5"
+                            maxlength="1000"
+                            ></textarea>
                             <p class="popup__form-error">Write your message*</p>
                         </div>
                         <div class="popup__form-agree">
                             <label>
-                                <input type="checkbox" name="agreed" required>
-                                <span></span>
+                            <input type="checkbox" name="agreed" required>
+                            <span></span>
                             </label>
                             <p class="popup__form-agree--descr">I consent to data processing (<a href="privacy-policy.html">Privacy Policy</a>)</p>
                         </div>
