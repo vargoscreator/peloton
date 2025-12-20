@@ -1383,10 +1383,21 @@ document.addEventListener("DOMContentLoaded", () => {
   popupButtons.forEach(btn => {
     btn.addEventListener("click", (e) => {
         e.preventDefault(); 
-        document.querySelector('.header').classList.remove('show-menu')
+        document.querySelector('.header').classList.remove('show-menu');
+        
         const target = btn.getAttribute("data-popup-open");
         const popup = document.querySelector(`.popup[data-popup="${target}"]`);
+        
         if (popup) {
+            if (btn.classList.contains('popup-title-change')) {
+                const titleElement = popup.querySelector('.popup__title');
+                if (titleElement) {
+                    if (!popup.dataset.originalTitle) {
+                        popup.dataset.originalTitle = titleElement.innerText;
+                    }
+                    titleElement.innerText = btn.innerText;
+                }
+            }
             popup.classList.add("active");
             document.body.style.overflow = "hidden";
         }
@@ -1397,17 +1408,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const inner = popup.querySelector(".popup__inner");
     const closeBtn = popup.querySelector(".popup__close");
 
-    closeBtn.addEventListener("click", (e) => {
-        e.preventDefault(); 
+    const closePopup = () => {
         popup.classList.remove("active");
         document.body.style.overflow = "";
+        setTimeout(() => {
+            const titleElement = popup.querySelector('.popup__title');
+            if (titleElement && popup.dataset.originalTitle) {
+                titleElement.innerText = popup.dataset.originalTitle;
+                delete popup.dataset.originalTitle;
+            }
+        }, 400);
+    };
+
+    closeBtn.addEventListener("click", (e) => {
+        e.preventDefault(); 
+        closePopup();
     });
 
     popup.addEventListener("click", (e) => {
         if (!inner.contains(e.target)) {
             e.preventDefault(); 
-            popup.classList.remove("active");
-            document.body.style.overflow = "";
+            closePopup();
         }
     });
   });
@@ -1823,7 +1844,7 @@ solutionsItems.forEach(item => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const OFFSET = 170;
+    const OFFSET = 50;
     function scrollWithOffset(id) {
         const el = document.querySelector(id);
         if (!el) return;

@@ -193,7 +193,6 @@ textarea{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 16px;
-    font-style: italic;
     font-weight: 700;
     line-height: 125%;
 }
@@ -303,7 +302,7 @@ textarea{
 /* header */
 .header{
     padding-top: 18px;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -822,7 +821,7 @@ p > a:not(:hover){
     top: 100%;
     left: 0;
     right: 0;
-    background: #E9E8E8;
+    background: #E60A14;
     z-index: 10;
     flex-direction: column;
 }
@@ -830,7 +829,7 @@ p > a:not(:hover){
     padding: 10px;
     border-bottom: 1px solid #262932;
     display: inline-block;
-    color: #002C41;
+    color: #fff;
     font-size: 13.997px;
     line-height: 135%; /* 18.893px */
     cursor: pointer;
